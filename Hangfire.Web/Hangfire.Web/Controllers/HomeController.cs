@@ -50,6 +50,14 @@ namespace Hangfire.Web.Controllers
     
         public IActionResult ImageSave()
         {
+           /*
+           |
+           |   Recurring job is called here
+           |
+           */
+
+            Jobs.Recurring.Job_Recurring();
+
             return View();
         }
 
