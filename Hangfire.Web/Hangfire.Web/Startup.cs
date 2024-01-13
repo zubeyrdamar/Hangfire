@@ -1,13 +1,9 @@
+using Hangfire.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Hangfire.Web
 {
@@ -33,8 +29,10 @@ namespace Hangfire.Web
             {
                 config.UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection"));
             });
-
             services.AddHangfireServer();
+
+
+            services.AddScoped<IEmailSender, EmailSender>();
 
             services.AddControllersWithViews();
         }
@@ -53,7 +51,7 @@ namespace Hangfire.Web
 
             /*
             |
-            |   Set hangfire dashboard
+            |   Initialize hangfire dashboard
             |   www.your-website.com/hangfire
             |
             */
