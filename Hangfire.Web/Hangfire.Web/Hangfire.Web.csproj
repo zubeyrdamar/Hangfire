@@ -10,6 +10,11 @@
     <PackageReference Include="Hangfire.SqlServer" Version="1.8.7" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
     <PackageReference Include="SendGrid" Version="9.28.1" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\watermarks\" />
   </ItemGroup>
 
 </Project>
