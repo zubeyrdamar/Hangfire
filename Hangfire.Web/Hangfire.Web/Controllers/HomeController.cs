@@ -83,6 +83,14 @@ namespace Hangfire.Web.Controllers
                 */
 
                 string jobId = Jobs.Delayed.Job_AddWatermark(filename, "your message");
+
+                /*
+                |
+                |   Continuation job is called here
+                |
+                */
+
+                Jobs.Continuation.Job_Continuation(jobId);
             }
 
             return View();
