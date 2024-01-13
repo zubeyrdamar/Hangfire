@@ -6,7 +6,7 @@ namespace Hangfire.Web.BackgroundJobs
     {
         public static void Job_SendEmail(string userId, string message)
         {
-            Hangfire.BackgroundJob.Enqueue<IEmailSender>(e => e.Execute(userId, message));
+            Hangfire.BackgroundJob.Enqueue<IEmailSender>(j => j.Execute(userId, message));
         }
     }
 }
